@@ -17,7 +17,7 @@ function getRandomNumber () {
 }
 
 function simulateHeavyWork () {
-  var delay = Number(delayInput.value)
+  var delay = Number(8)
   var start = Date.now()
 
   while(start + delay > Date.now()) {
