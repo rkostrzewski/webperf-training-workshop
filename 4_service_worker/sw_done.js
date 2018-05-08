@@ -29,9 +29,7 @@ self.addEventListener('fetch', function(event) {
     if (response !== undefined) {
       if (!isApiRequest(event.request)) {
         return response
-      }
-      
-      if (!isRequestStale (event.request)) {
+      } else if (!isRequestStale (event.request)) {
         return response
       }
     }
@@ -73,7 +71,7 @@ function isRequestStale (request) {
   }
 
   console.log('diff', Date.now() - lastRequestDate.valueOf())
-  return Date.now() - lastRequestDate.valueOf() > 15 * 1000
+  return Date.now() - lastRequestDate.valueOf() > 5 * 1000
 }
 
 var requestDates = {}

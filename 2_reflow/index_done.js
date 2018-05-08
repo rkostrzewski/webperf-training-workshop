@@ -22,14 +22,11 @@ function updateWaves() {
 
   for (var i = 1; i < waves.length; i++) {
     var previousHeight = waveHeights[i - 1]
-
     waveHeights[i] = previousHeight + calculateWaveHeight(i)
   }
 
-  for (var i = 0; i < waves.length; i++) {
-    var wave = waves[i]
-    var waveHeight = waveHeights[i]
-    wave.style.height = waveHeight + 'px'
+  for (var i = 0; i < waveHeights.length; i++) {
+    waves[i].style.height = waveHeights[i] + 'px'
   }
 }
 
