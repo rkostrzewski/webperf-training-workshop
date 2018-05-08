@@ -21,7 +21,8 @@ function doWorkAsync (callback) {
   // performance.now() returns current DOMHighResTimeStamp
   function doWorkOnFrame(frameStartTimestamp) {
     // while work is not finished and there is time to perform work inside current frame
-    while (isFinished() && (frameStartTimestamp + maxFrameDurationMs) < performance.now()) {
+    var endOfFrame = frameStartTimestamp + maxFrameDurationMs
+    while (!isFinished() && performance.now() < endOfFrame) {
       // do some work from where we left off
     }
 
